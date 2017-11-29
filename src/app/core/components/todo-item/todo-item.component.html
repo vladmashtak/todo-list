@@ -1,3 +1,12 @@
-<p>
-  todo-item works!
-</p>
+<div class="todo-item__header">
+  <div class="todo-item__title">{{item.title}}</div>
+  <div class="todo-item__remove-button">X</div>
+</div>
+<div class="todo-item__content">
+  <div class="todo-item__description">
+    {{item.description}}
+  </div>
+  <div class="todo-item__date">
+    {{item.created_at}}
+  </div>
+</div>

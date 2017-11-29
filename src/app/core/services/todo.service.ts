@@ -10,7 +10,7 @@ export class TodoService {
   constructor() { }
 
   public getTodoList(): Observable<Array<TodoDto>> {
-    // http
+    // fake http response
     return of(todoJSON.result);
   }
 

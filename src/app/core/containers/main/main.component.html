@@ -1,2 +1,8 @@
-<app-todo-form></app-todo-form>
-<app-todo-side-bar></app-todo-side-bar>
+<div class="main__header">
+  <app-todo-form (create)="addNewTodoItem($event)" class="content-panel"></app-todo-form>
+</div>
+<div class="main__content">
+  <app-todo-side-bar [dateList]="todoDateList | async" (groupBy)="groupBy($event)" class="content-panel"></app-todo-side-bar>
+  <app-todo-item-list [todoList]="todoList | async"></app-todo-item-list>
+</div>
+

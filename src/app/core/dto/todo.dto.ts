@@ -1,6 +1,6 @@
 export interface TodoDto {
-  id: number;
+  id?: number;
   title: string;
   description: string;
-  created_at: string;
+  created_at?: string;
 }

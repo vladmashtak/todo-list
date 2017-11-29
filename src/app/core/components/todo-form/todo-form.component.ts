@@ -1,13 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html',
-  styleUrls: ['./todo-form.component.scss']
+  styleUrls: ['./todo-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoFormComponent implements OnInit {
   public todoForm: FormGroup;
+
+  @Output()
+  public create: EventEmitter<{title: string; description: string}> = new EventEmitter();
 
   constructor(private fb: FormBuilder) {
   }
@@ -17,7 +21,7 @@ export class TodoFormComponent implements OnInit {
   }
 
   public submitForm(form: FormGroup): void {
-    console.log('form: ', form.value);
+    this.create.emit(form.value);
     form.reset();
   }
 

@@ -3,13 +3,12 @@ import { TodoDto } from '../dto/todo.dto';
 
 export const ADD_TODO = '[TODO] Add TODO';
 export const ADD_TODO_SUCCESS = '[TODO] Add TODO Success';
-export const ADD_TODO_FAIL = '[TODO] Add TODO Fail';
 export const REMOVE_TODO = '[TODO] Remove TODO';
 export const REMOVE_TODO_SUCCESS = '[TODO] Remove TODO Success';
-export const REMOVE_TODO_FAIL = '[TODO] Remove TODO Fail';
 export const LOAD = '[TODO] Load';
 export const LOAD_SUCCESS = '[TODO] Load Success';
 export const LOAD_FAIL = '[TODO] Load Fail';
+export const GROUP_TODO = '[TODO] Group';
 
 export class AddTodo implements Action {
   readonly type = ADD_TODO;
@@ -23,12 +22,6 @@ export class AddTodoSuccess implements Action {
   constructor(public payload: TodoDto) {}
 }
 
-export class AddTodoFail implements Action {
-  readonly type = ADD_TODO_FAIL;
-
-  constructor(public payload: TodoDto) {}
-}
-
 export class RemoveTodo implements Action {
   readonly type = REMOVE_TODO;
 
@@ -37,12 +30,6 @@ export class RemoveTodo implements Action {
 
 export class RemoveTodoSuccess implements Action {
   readonly type = REMOVE_TODO_SUCCESS;
-
-  constructor(public payload: TodoDto) {}
-}
-
-export class RemoveTodoFail implements Action {
-  readonly type = REMOVE_TODO_FAIL;
 
   constructor(public payload: TodoDto) {}
 }
@@ -63,13 +50,18 @@ export class LoadFail implements Action {
   constructor(public payload: any) {}
 }
 
+export class GroupTodo implements Action {
+  readonly type = GROUP_TODO;
+
+  constructor(public payload: { groupByTitle: string, groupByDate: string }) {}
+}
+
 export type Actions =
   | AddTodo
   | AddTodoSuccess
-  | AddTodoFail
   | RemoveTodo
   | RemoveTodoSuccess
-  | RemoveTodoFail
   | Load
   | LoadSuccess
-  | LoadFail;
+  | LoadFail
+  | GroupTodo;

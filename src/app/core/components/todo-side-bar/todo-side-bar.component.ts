@@ -14,7 +14,7 @@ export class TodoSideBarComponent implements OnInit {
   public todoSortForm: FormGroup;
 
   @Output()
-  public groupBy: EventEmitter<{ groupByTitle: string, groupByDate: string | null }> = new EventEmitter();
+  public groupBy: EventEmitter<{ groupByTitle: string, groupByDate: string }> = new EventEmitter();
 
   constructor(private fb: FormBuilder) {
   }
@@ -24,12 +24,13 @@ export class TodoSideBarComponent implements OnInit {
   }
 
   public submitForm(form: FormGroup): void {
+    this.groupBy.emit(form.value);
   }
 
   private createForm(): FormGroup {
     return this.fb.group({
       groupByTitle: '',
-      groupByDate: null
+      groupByDate: ''
     });
   }
 

@@ -3,10 +3,14 @@ import { TodoDto } from '../dto/todo.dto';
 
 export interface State {
   list: Array<TodoDto>;
+  groupByTitle: string;
+  groupByDate: string;
 }
 
 const initialState: State = {
-  list: []
+  list: [],
+  groupByTitle: '',
+  groupByDate: ''
 };
 
 export function reducer(state: State = initialState,
@@ -15,6 +19,7 @@ export function reducer(state: State = initialState,
 
     case todo.LOAD_SUCCESS: {
       return {
+        ...state,
         list: action.payload
       };
     }
@@ -35,13 +40,23 @@ export function reducer(state: State = initialState,
       };
 
       return {
+        ...state,
         list: [...state.list, todoItem]
       };
     }
 
     case todo.REMOVE_TODO_SUCCESS: {
       return {
+        ...state,
         list: state.list.filter((listItem: TodoDto) => listItem.id !== action.payload.id)
+      };
+    }
+
+    case todo.GROUP_TODO: {
+      return {
+        ...state,
+        groupByTitle: action.payload.groupByTitle,
+        groupByDate: action.payload.groupByDate
       };
     }
 
@@ -52,3 +67,7 @@ export function reducer(state: State = initialState,
 }
 
 export const todoListGetter = (state: State) => state.list;
+
+export const todoGroupByTitleGetter = (state: State) => state.groupByTitle;
+
+export const todoGroupByDateGetter = (state: State) => state.groupByDate;
