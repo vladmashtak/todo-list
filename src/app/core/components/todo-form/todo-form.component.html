@@ -1,3 +1,12 @@
-<p>
-  todo-form works!
-</p>
+<form [formGroup]="todoForm" (submit)="submitForm(todoForm)" class="todo-form" novalidate>
+  <div class="todo-form__field">
+    <label for="todo-title" class="todo-form__label">Title: </label>
+    <input formControlName="title" id="todo-title" type="text" class="todo-form__description">
+  </div>
+  <div class="todo-form__field">
+    <label for="todo-description" class="todo-form__label">Description: </label>
+    <input formControlName="description" id="todo-description" type="text" class="todo-form__description">
+  </div>
+
+  <button class="todo-form__submit" type="submit">Submit</button>
+</form>

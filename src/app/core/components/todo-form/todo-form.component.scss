@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  width: 100%;
+  max-width: 300px;
+  background-color: #eeeeee;
+  padding: 20px;
+}
+
+.todo-form {
+  &__field {
+    padding: 10px 0;
+  }
+
+  &__label,
+  &__description {
+    width: 200px;
+    display: inline-flex;
+  }
+}

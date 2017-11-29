@@ -1,3 +1,16 @@
-<p>
-  todo-side-bar works!
-</p>
+<div class="side-bar__header"> Filter by:</div>
+<form [formGroup]="todoSortForm" novalidate class="side-bar__form">
+  <div class="side-bar__form-field">
+    <label for="todo-title" class="side-bar__form-label">Title: </label>
+    <input formControlName="groupByTitle" id="todo-title" type="text" class="side-bar__form-input">
+  </div>
+  <div class="side-bar__form-field">
+    <label for="todo-description" class="side-bar__form-label">Date: </label>
+    <select formControlName="groupByDate" id="todo-description" (change)="submitForm(todoSortForm)"
+            class="side-bar__form-select">
+      <option *ngFor="let date of dateList" [value]="date">
+        {{date}}
+      </option>
+    </select>
+  </div>
+</form>

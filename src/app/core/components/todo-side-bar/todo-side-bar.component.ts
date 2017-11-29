@@ -1,15 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-side-bar',
   templateUrl: './todo-side-bar.component.html',
-  styleUrls: ['./todo-side-bar.component.scss']
+  styleUrls: ['./todo-side-bar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoSideBarComponent implements OnInit {
+  @Input()
+  public dateList: Array<string> = [];
 
-  constructor() { }
+  public todoSortForm: FormGroup;
 
-  ngOnInit() {
+  @Output()
+  public groupBy: EventEmitter<{ groupByTitle: string, groupByDate: string | null }> = new EventEmitter();
+
+  constructor(private fb: FormBuilder) {
+  }
+
+  public ngOnInit(): void {
+    this.todoSortForm = this.createForm();
+  }
+
+  public submitForm(form: FormGroup): void {
+  }
+
+  private createForm(): FormGroup {
+    return this.fb.group({
+      groupByTitle: '',
+      groupByDate: null
+    });
   }
 
 }
