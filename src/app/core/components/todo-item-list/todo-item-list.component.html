@@ -1,1 +1,2 @@
 <app-todo-item *ngFor="let todo of todoList" [item]="todo" class="content-panel"></app-todo-item>
+<app-todo-paginator [countItem]="todoList.length"></app-todo-paginator>

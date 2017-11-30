@@ -8,10 +8,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoFormComponent implements OnInit {
-  public todoForm: FormGroup;
-
   @Output()
   public create: EventEmitter<{title: string; description: string}> = new EventEmitter();
+
+  private todoForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
   }

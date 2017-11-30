@@ -13,6 +13,7 @@ import { AppComponent } from './containers/app/app.component';
 import { MainComponent } from './containers/main/main.component';
 
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
+import { TodoPaginatorComponent } from './components/todo-paginator/todo-paginator.component';
 import { TodoItemListComponent } from './components/todo-item-list/todo-item-list.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { TodoSideBarComponent } from './components/todo-side-bar/todo-side-bar.component';
@@ -20,6 +21,7 @@ import { TodoSideBarComponent } from './components/todo-side-bar/todo-side-bar.c
 const COMPONENTS = [
   AppComponent,
   MainComponent,
+  TodoPaginatorComponent,
   TodoFormComponent,
   TodoItemListComponent,
   TodoItemComponent,

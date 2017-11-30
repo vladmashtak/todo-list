@@ -11,10 +11,10 @@ export class TodoSideBarComponent implements OnInit {
   @Input()
   public dateList: Array<string> = [];
 
-  public todoSortForm: FormGroup;
-
   @Output()
   public groupBy: EventEmitter<{ groupByTitle: string, groupByDate: string }> = new EventEmitter();
+
+  private todoSortForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
   }

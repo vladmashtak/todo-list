@@ -1,0 +1,14 @@
+<div *ngIf="pageCount > 0" class="todo-paginator">
+  <div class="todo-paginator__prev-page">
+    <
+  </div>
+  <div *ngFor="let page of pages | async"
+       [class.active]="page === currentPage"
+       (click)="selectPage(page)"
+       class="todo-paginator__page">
+    {{page}}
+  </div>
+  <div class="todo-paginator__next-page">
+    >
+  </div>
+</div>
