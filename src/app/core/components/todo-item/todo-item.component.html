@@ -1,12 +1,15 @@
-<div class="todo-item__header">
-  <div class="todo-item__title">{{item.title}}</div>
-  <div class="todo-item__remove-button">X</div>
-</div>
-<div class="todo-item__content">
-  <div class="todo-item__description">
-    {{item.description}}
+<div class="content-panel">
+  <div class="card-header todo-item__header">
+    <div class="todo-item__title" title="{{item.title}}">{{item.title}}</div>
+    <div class="todo-item__remove-button" (click)="remove(item)">&times;</div>
   </div>
-  <div class="todo-item__date">
-    {{item.created_at}}
+  <div class="card-body todo-item__content">
+    <div class="todo-item__description">
+      {{item.description}}
+    </div>
+    <div class="todo-item__date">
+      Added: {{item.created_at}}
+    </div>
   </div>
 </div>
+

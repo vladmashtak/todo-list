@@ -1,0 +1,11 @@
+.todo-paginator {
+  &__link {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+
+    &.active {
+      color: red;
+    }
+  }
+}

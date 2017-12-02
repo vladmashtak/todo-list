@@ -11,7 +11,7 @@ export class TodoFormComponent implements OnInit {
   @Output()
   public create: EventEmitter<{title: string; description: string}> = new EventEmitter();
 
-  private todoForm: FormGroup;
+  public todoForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
   }

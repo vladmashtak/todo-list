@@ -1,6 +1,33 @@
 :host {
   display: flex;
-  flex-basis: 20%;
+  flex-basis: 25%;
   flex-direction: column;
-  margin: 10px;
+  padding: 10px;
+  max-width: 100%;
+  flex-grow: 1;
+}
+
+.todo-item {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 200px;
+    margin-right: 4px;
+  }
+
+  &__remove-button {
+    cursor: pointer;
+  }
+
+  &__description {
+    height: 240px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }

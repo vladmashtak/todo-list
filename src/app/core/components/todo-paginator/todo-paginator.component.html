@@ -1,14 +1,23 @@
-<div *ngIf="pageCount > 0" class="todo-paginator">
-  <div class="todo-paginator__prev-page">
-    <
-  </div>
-  <div *ngFor="let page of pages | async"
-       [class.active]="page === currentPage"
-       (click)="selectPage(page)"
-       class="todo-paginator__page">
-    {{page}}
-  </div>
-  <div class="todo-paginator__next-page">
-    >
-  </div>
-</div>
+<ul *ngIf="size > limit" class="pagination todo-paginator">
+  <li [class.disabled]="currentPage === 1" class="page-item">
+    <a (click)="selectPage(currentPage - 1)"
+       class="page-link todo-paginator__link todo-paginator__prev-page">
+      &lsaquo;
+    </a>
+  </li>
+  <li *ngFor="let page of pages | async"
+      [class.active]="page === currentPage"
+      class="page-item">
+    <a (click)="selectPage(page)"
+       href="javascript:void(0)"
+       class="page-link todo-paginator__link todo-paginator__page">
+      {{page}}
+    </a>
+  </li>
+  <li [class.disabled]="currentPage === totalPages" class="page-item">
+    <a (click)="selectPage(currentPage + 1)"
+       class="page-link todo-paginator__link todo-paginator__next-page">
+      &rsaquo;
+    </a>
+  </li>
+</ul>

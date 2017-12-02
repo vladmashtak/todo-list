@@ -41,7 +41,7 @@ export function reducer(state: State = initialState,
 
       return {
         ...state,
-        list: [...state.list, todoItem]
+        list: [todoItem, ...state.list]
       };
     }
 

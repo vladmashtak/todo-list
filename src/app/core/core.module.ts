@@ -17,6 +17,7 @@ import { TodoPaginatorComponent } from './components/todo-paginator/todo-paginat
 import { TodoItemListComponent } from './components/todo-item-list/todo-item-list.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { TodoSideBarComponent } from './components/todo-side-bar/todo-side-bar.component';
+import { OffsetPipe } from './pipes/offset.pipe';
 
 const COMPONENTS = [
   AppComponent,
@@ -25,7 +26,8 @@ const COMPONENTS = [
   TodoFormComponent,
   TodoItemListComponent,
   TodoItemComponent,
-  TodoSideBarComponent
+  TodoSideBarComponent,
+  OffsetPipe
 ];
 
 @NgModule({

@@ -19,7 +19,7 @@ export class TodoPaginatorComponent implements OnChanges {
   @Input()
   public size = 1;
   @Input()
-  public range = 3;
+  public range = 4;
 
   @Output()
   public pageChange: EventEmitter<number> = new EventEmitter<number>();
@@ -32,11 +32,17 @@ export class TodoPaginatorComponent implements OnChanges {
   }
 
   public ngOnChanges(): void {
+    this.getPages(this.offset, this.limit, this.size);
   }
 
   private getPages(offset: number, limit: number, size: number): void {
     this.currentPage = this.getCurrentPage(offset, limit);
     this.totalPages = this.getTotalPages(limit, size);
+
+    if (this.currentPage > this.totalPages) {
+      this.currentPage = 1;
+    }
+
     this.pages = Observable.range(-this.range, this.range * 2 + 1)
       .map(oft => this.currentPage + oft)
       .filter(page => this.isValidPageNumber(page, this.totalPages))

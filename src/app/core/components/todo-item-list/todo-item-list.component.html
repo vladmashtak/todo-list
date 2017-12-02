@@ -1,2 +1,10 @@
-<app-todo-item *ngFor="let todo of todoList" [item]="todo" class="content-panel"></app-todo-item>
-<app-todo-paginator [countItem]="todoList.length"></app-todo-paginator>
+<div class="item-list__content">
+  <app-todo-item *ngFor="let todo of todoList | offset: itemsOffset: ITEMS_LIMIT" [item]="todo"
+                 (removeItem)="removeItem($event)"></app-todo-item>
+  <div class="item-list__last-element"></div>
+</div>
+<div class="item-list__pagination">
+  <app-todo-paginator [offset]="itemsOffset" [limit]="ITEMS_LIMIT" [size]="todoList.length"
+                      (pageChange)="pageChange($event)"></app-todo-paginator>
+</div>
+

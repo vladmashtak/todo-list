@@ -1,8 +1,8 @@
-<div class="side-bar__header"> Filter by:</div>
+<h4 class="side-bar__header"> Filter by:</h4>
 <form [formGroup]="todoSortForm" novalidate class="side-bar__form">
   <div class="side-bar__form-field">
     <label for="todo-title" class="side-bar__form-label">Title: </label>
-    <input formControlName="groupByTitle" id="todo-title" (input)="submitForm(todoSortForm)" type="text"
+    <input formControlName="groupByTitle" id="todo-title" type="text"
            class="side-bar__form-input">
   </div>
   <div *ngIf="dateList.length > 0" class="side-bar__form-field">
